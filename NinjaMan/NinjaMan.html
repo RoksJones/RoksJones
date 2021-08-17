@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>NinjaMan</title>
+	<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	.wall{
+		background-color: black;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+	}
+	.sushi {
+		background-color: yellow;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+		background-image: url('sushi.png');
+		background-size: contain;
+	}
+	.blank{
+		background-color: black;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+	}
+	#ninjaman {
+		background-color: whitesmoke;
+		height: 40px;
+		width: 40px;
+		display: inline-block;
+		background-image: url('ninja.gif');
+		background-size: contain;
+		position: absolute;
+		left: 40px;
+		top: 40px;
+	}
+	#hearts {
+		background-color: black;
+		height: 25px;
+		width: 25px;
+		display: inline-block;
+		background-image: url('heart.gif');
+		background-size: contain;
+		position: absolute;
+
+		
+	</style>
+</head>
+<body>
+
+	<div id='world'>
+		<div class='row'>
+		<div class = 'wall'></div>
+		<div class = 'wall'></div>
+		<div class = 'wall'></div>
+		<div class = 'wall'></div>
+		<div class = 'wall'></div>
+	</div>
+		<div class='row'>
+		<div class = 'wall'></div>
+		<div class = 'blank'></div>
+		<div class = 'sushi'></div>
+		<div class = 'sushi'></div>
+		<div class = 'wall'></div>
+	</div>
+			<div class='row'>
+		<div class = 'wall'></div>
+		<div class = 'sushi'></div>
+		<div class = 'wall'></div>
+		<div class = 'sushi'></div>
+		<div class = 'wall'></div>
+	</div>
+			<div class='row'>
+		<div class = 'wall'></div>
+		<div class = 'sushi'></div>
+		<div class = 'sushi'></div>
+		<div class = 'sushi'></div>
+		<div class = 'wall'></div>
+	</div>
+			<div class='row'>
+		<div class = 'wall'></div>
+		<div class = 'wall'></div>
+		<div class = 'wall'></div>
+		<div class = 'wall'></div>
+		<div class = 'wall'></div>
+	</div>
+	<div id='ninjaman'></div>
+	<div id='hearts'></div>
+
+	<body>
+		<script type="text/javascript">
+			var world = [
+			[1,1,1,1,1],
+			[1,1,1,1,1],
+			[1,1,1,1,1],
+			[1,1,1,1,1],
+			[1,1,1,1,1],
+			];
+
+			var worldDict = {
+				0: 'blank',
+				1: 'wall',
+				2: 'sushi'
+			}
+function drawWorld(){
+	console.log('test')
+	output = "";
+
+	for(var row=0; row < world.length; row++){
+		output += "<div class = 'row'></div>"
+	}
+
+	document.getElementById('world').innerHTML= 
+	output;
+}
+		</script>
+</html>
+
+
+
+<!-- <html>
+<body>
+        <div id='character' style='position:absolute; top:100px; left:450px; background-image: url("img/down1.png"); width:59px; height:86px; background-size: contain;
+        margin padding: 0px;
+        padding: 0px; '></div>
+    </div>
+  <script type="text/javascript">
+	    var leftValue = 450, topValue = 100, direction = 'down'; walk = 1;
+
+    	function update(){
+            if (walk == 1){
+                walk = 2;
+            }
+            else{
+                walk = 1;
+            }
+    		document.getElementById("character").style.left = leftValue+"px";
+    		document.getElementById("character").style.top = topValue+"px";
+            document.getElementById("character").style.backgroundImage = "url('img/"+direction+walk+".png')";
+        }
+    console.log(direction);
+    	document.onkeydown = function(e){
+    		console.log(e);
+    		if(e.keyCode == 37 && leftValue > 0) { // LEFT
+    			leftValue = leftValue - 10;
+                direction = 'left';
+    		}
+    		else if (e.keyCode == 39 && leftValue < 550) { // RIGHT
+    			leftValue = leftValue + 10;
+                direction = 'right'; 
+
+    		}
+    		else if (e.keyCode == 40 && topValue < 475) { // DOWN
+				topValue = topValue + 10;
+                direction = 'down';
+    		}
+            else if (e.keyCode == 38 && topValue > 0) { // UP
+                topValue = topValue - 10;
+                direction = 'top';
+            }
+            // Trying to figure out walking in a degree to the top right
+            //if (e.keyCode == [38,39] && topValue >0 && leftvalue > 500) {//up/right
+                //topValue = topvalue -10
+                //leftvalue = leftValue +10
+                //direction = 'top,right'
+            //}
+            console.log(direction);
+    		update();
+    	}
+    </script>
+</body>
+</html>  -->
